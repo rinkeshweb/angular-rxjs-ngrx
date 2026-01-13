@@ -3,7 +3,7 @@
   <input pInputText placeholder="First name" [value]="fname()" (input)="fname.set($any($event.target).value)" />
   <input pInputText placeholder="Last name" [value]="lname()" (input)="lname.set($any($event.target).value)" />
 </div>
-<input pInputText placeholder="Enter fruit" #fruitInput [value]="fruit()"
+<input #fruitInput pInputText placeholder="Enter fruit" [value]="fruit()"
   (input)="fruit.set($any($event.target).value)">
 <button pButton class="ml-2" (click)="addFruit(fruitInput)">Add Fruit</button>
 <hr class="my-4 border-2 border-blue-600">
