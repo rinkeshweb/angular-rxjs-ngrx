@@ -1,0 +1,16 @@
+<h2 class="text-2xl font-bold mb-4">Child</h2>
+
+<h5 class="text-2xl mb-4">
+  Welcome, <b>{{ displayName() }}</b>
+</h5>
+
+<pre>{{ getObject() | json }}</pre>
+
+<h3 class="text-xl font-semibold mt-4">Fruits</h3>
+<ul class="list-disc pl-5">
+  @for (fruit of fruits(); track fruit) {
+  <li>{{ fruit }}</li>
+  }
+</ul>
+
+<button pButton class="mt-4" (click)="onReset()">Reset Name</button>

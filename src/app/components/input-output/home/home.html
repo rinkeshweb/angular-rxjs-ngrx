@@ -1,0 +1,11 @@
+<h2 class="text-2xl font-bold mb-4">Parent</h2>
+<div class="grid grid-cols-2 gap-4 mb-4">
+  <input pInputText placeholder="First name" [value]="fname()" (input)="fname.set($any($event.target).value)" />
+  <input pInputText placeholder="Last name" [value]="lname()" (input)="lname.set($any($event.target).value)" />
+</div>
+<input pInputText placeholder="Enter fruit" #fruitInput [value]="fruit()"
+  (input)="fruit.set($any($event.target).value)">
+<button pButton class="ml-2" (click)="addFruit(fruitInput)">Add Fruit</button>
+<hr class="my-4 border-2 border-blue-600">
+<app-child [firstName]="fname()" [lastName]="lname()" [fruitName]="submittedFruit()" [getObject]="uservalue()"
+  (clearInput)="resetInput()" (clearFruitInput)="resetFruitInput()" />
