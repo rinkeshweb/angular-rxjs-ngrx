@@ -2,8 +2,22 @@
 <h4 class="text-md font-semibold mb-4">Counter Value is : {{count()}}</h4>
 <hr class="my-4">
 <h4 class="text-2xl font-medium mb-4">User Display</h4>
-<ul>
+<ul class="mb-3">
   @for(user of commonService.users(); track user.id){
   <li>{{user.id}} - {{user.name}}</li>
   }
 </ul>
+<hr class="mb-3">
+<div class="mb-3">
+  <p>We have {{totalUsers()}} users</p>
+  <p-message ngSkipHydration severity="contrast" size="small">totalUsers = computed(() =>
+    this.commonService.users().length + 1)</p-message>
+</div>
+<div class="mb-3">
+  <p>We have {{_totalUsers$ | async}} users</p>
+  <p-message ngSkipHydration severity="contrast" size="small">_totalUsers$ = toObservable(this.totalUsers)</p-message>
+</div>
+<div class="mb-3">
+  <p>We have {{_signalUsers()}} users</p>
+  <p-message ngSkipHydration severity="contrast" size="small">_signalUsers = toSignal(this._totalUsers$)</p-message>
+</div>
