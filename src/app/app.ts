@@ -1,11 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { UserService } from './core/services/user-service';
-import { Home } from './components/input-output/home/home';
-import { InputOutput } from './components/input-output/input-output';
+import { ScrollTop } from 'primeng/scrolltop';
+import { Components } from './components/components';
 
 @Component({
   selector: 'app-root',
-  imports: [InputOutput],
+  imports: [Components, ScrollTop],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

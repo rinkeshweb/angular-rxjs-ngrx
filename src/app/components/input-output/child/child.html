@@ -1,16 +1,18 @@
-<h2 class="text-2xl font-bold mb-4">Child</h2>
-
-<h5 class="text-2xl mb-4">
-  Welcome, <b>{{ displayName() }}</b>
-</h5>
-
-<pre>{{ getObject() | json }}</pre>
-
-<h3 class="text-xl font-semibold mt-4">Fruits</h3>
-<ul class="list-disc pl-5">
-  @for (fruit of fruits(); track fruit) {
-  <li>{{ fruit }}</li>
-  }
-</ul>
-
-<button pButton class="mt-4" (click)="onReset()">Reset Name</button>
+<div class="flex gap-4 justify-between mb-4">
+  <h2 class="text-2xl font-bold">Child</h2>
+  <button pButton size="small" (click)="onReset()">Reset Name</button>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+  <div class="bg-blue-200 p-4">
+    <h5 class="text-2xl">Welcome, <b>{{ displayName() }}</b></h5>
+    <pre>{{ getObject() | json }}</pre>
+  </div>
+  <div class="bg-orange-200 p-4">
+    <h3 class="text-xl font-semibold mb-4">Fruits</h3>
+    <ul class="list-disc pl-5">
+      @for (fruit of fruits(); track fruit) {
+      <li>{{ fruit }}</li>
+      }
+    </ul>
+  </div>
+</div>

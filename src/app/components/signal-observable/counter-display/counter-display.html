@@ -1,0 +1,9 @@
+<h4 class="text-2xl font-medium mb-4">Counter Display</h4>
+<h4 class="text-md font-semibold mb-4">Counter Value is : {{count()}}</h4>
+<hr class="my-4">
+<h4 class="text-2xl font-medium mb-4">User Display</h4>
+<ul>
+  @for(user of commonService.users(); track user.id){
+  <li>{{user.id}} - {{user.name}}</li>
+  }
+</ul>

@@ -1,12 +1,17 @@
-<div class="card bg-pink-500 p-4">
-  <h1 class="text-3xl text-center text-white font-semibold">{{title()}}</h1>
-</div>
-
-<section class="p-5">
-  <div class="max-w-7xl mx-auto">
-    <!-- Input Output -->
-    <app-input-output />
-
-    <!--  -->
+<main>
+  <div class="card bg-pink-500 p-4">
+    <h1 class="text-3xl text-center text-white font-semibold">{{title()}}</h1>
   </div>
-</section>
+
+  <section class="p-5 min-h-svh">
+    <div class="max-w-7xl mx-auto">
+      <!-- Components -->
+      <app-components />
+    </div>
+  </section>
+
+
+  <!-- Scroll to top -->
+  <p-scrolltop [threshold]="100" icon="pi pi-arrow-up"
+    [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }" />
+</main>

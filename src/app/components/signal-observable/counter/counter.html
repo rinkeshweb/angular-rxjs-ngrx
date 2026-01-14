@@ -1,0 +1,15 @@
+<h4 class="text-2xl font-medium mb-4">Counter Action</h4>
+<div class="flex gap-2 mb-4">
+  <p-button severity="danger" class=" text-white" icon="pi pi-minus" title="Decrease" (click)="decrease()"
+    [disabled]="isDecreaseValue()" />
+  <p-button severity="success" class=" text-white" icon="pi pi-plus" title="Increse" (click)="increase()" />
+  <p-button severity="info" class=" text-white" icon="pi pi-refresh" title="Reset" (click)="reset()" />
+</div>
+<h4 class="text-2xl font-medium mb-4">Add User</h4>
+<p-inputgroup>
+  <input pInputText type="text" #usernameInput class="w-full" placeholder="Username" [value]="username()"
+    (input)="username.set($any($event.target).value)" />
+  <p-inputgroup-addon>
+    <p-button severity="info" class="" label="Add User" (click)="addUser()" [disabled]="isAddDisabled()" />
+  </p-inputgroup-addon>
+</p-inputgroup>
