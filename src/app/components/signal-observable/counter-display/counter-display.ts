@@ -15,7 +15,7 @@ export class CounterDisplay {
   count = signal<number>(0);
 
   // Computed
-  totalUsers = computed(() => this.commonService.users().length + 1);
+  totalUsers = computed(() => this.commonService.users().length);
 
   // to observable
   _totalUsers$ = toObservable(this.totalUsers);

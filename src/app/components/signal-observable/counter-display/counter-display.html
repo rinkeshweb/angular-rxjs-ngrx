@@ -5,6 +5,8 @@
 <ul class="mb-3">
   @for(user of commonService.users(); track user.id){
   <li>{{user.id}} - {{user.name}}</li>
+  } @empty {
+  <li>There are no users.</li>
   }
 </ul>
 <hr class="mb-3">
