@@ -37,17 +37,42 @@ export class ObservableDemoComponent implements OnInit, OnDestroy {
     });
 
     this.commonService.nums2$.pipe(filter(data => data % 2 !== 0), map(v => v * v)).subscribe((res) => {
-      console.log('from value:', res)
+      // console.log('from value:', res)
     });
 
     // Observer
-    this.commonService.observerData.next('Get Observer Data')
+    // this.commonService.observerData.next('Get Observer Data')
 
 
     // Creations Operators
-    this.commonService.creationsObs.subscribe(res => {
-      console.log('creations operators', res);
-    })
+    // this.commonService.creationsObs.subscribe((res:any) => {
+    //   console.log('Creations:', res);
+    // });
+
+    // Transformations Operators
+    // this.commonService.trans.subscribe((res: any) => {
+    //   console.log('Transformations:', res);
+    // });
+
+    // Filtring Operators
+    // this.commonService.filOpr.subscribe((res: any) => {
+    //   console.log('Filter Operations:', res);
+    // });
+
+    // // Take Operators
+    // this.commonService.takeOpr.subscribe((res: any) => {
+    //   console.log('Filter Operations:', res);
+    // });
+
+    // Join Operators
+    // this.commonService.joinOpr.subscribe((res: any) => {
+    //   console.log('Filter Operations:', res);
+    // });
+
+    // this.commonService.finalData.subscribe((res)=>{
+    //   console.log('custorm pipe function', res)
+    // })
+
 
   }
 
