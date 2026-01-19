@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonService } from '../../../core/services/common-service';
-import { filter, map, Subscription } from 'rxjs';
+import { filter, map, Subscription, queueScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
@@ -30,11 +30,11 @@ export class ObservableDemoComponent implements OnInit, OnDestroy {
 
     // Observable
     console.log('before subscribe');
-    this.numsSub = this.commonService.nums1$.subscribe({
-      next: (val) => console.log('of Value:', val),
-      error: (err) => console.log('Error:', err),
-      complete: () => console.log('Stream finished')
-    });
+    // this.numsSub = this.commonService.nums1$.subscribe({
+    //   next: (val) => console.log('of Value:', val),
+    //   error: (err) => console.log('Error:', err),
+    //   complete: () => console.log('Stream finished')
+    // });
 
     this.commonService.nums2$.pipe(filter(data => data % 2 !== 0), map(v => v * v)).subscribe((res) => {
       // console.log('from value:', res)
@@ -74,11 +74,30 @@ export class ObservableDemoComponent implements OnInit, OnDestroy {
     // })
 
 
+    // this.commonService.multiCasted.subscribe(res => {
+    //   console.log('subject', res)
+    // })
+
+    // this.commonService.queueSche.subscribe(res => {
+    //   console.log('Start');
+    //   console.log('queueScheduler:', res)
+    //   console.log('End')
+    // })
+
+
+
   }
 
+
+
+
+
+
+
+
   ngOnDestroy(): void {
-    this.numsSub.unsubscribe();
-    console.log('unsubscribed')
+    // this.numsSub.unsubscribe();
+    // console.log('unsubscribed')
   }
 
 }

@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -7,6 +7,11 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { ProductReducer } from './components/ngrx-demo/_store/products/Product.Reducer';
+import { ProductEffects } from './components/ngrx-demo/_store/products/Product.Effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,5 +32,8 @@ export const appConfig: ApplicationConfig = {
         preset: Aura
       }
     }),
+    provideStore({ product: ProductReducer }),
+    provideEffects([ProductEffects]),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
   ]
 };

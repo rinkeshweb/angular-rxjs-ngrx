@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { bindCallback, bufferCount, bufferTime, bufferWhen, combineLatest, concat, concatAll, concatMap, concatMapTo, defer, distinct, distinctUntilChanged, distinctUntilKeyChanged, elementAt, exhaustAll, exhaustMap, expand, filter, first, forkJoin, from, fromEvent, fromEventPattern, generate, groupBy, iif, interval, last, map, mapTo, merge, mergeAll, mergeMap, mergeMapTo, mergeScan, Observable, of, pairwise, partition, pipe, pluck, race, range, scan, single, skip, skipLast, skipUntil, skipWhile, switchAll, switchMap, switchMapTo, switchScan, take, takeLast, takeUntil, takeWhile, throwError, timer, toArray, windowCount, windowTime, zip, } from 'rxjs';
+import { animationFrameScheduler, asapScheduler, asyncScheduler, AsyncSubject, BehaviorSubject, bindCallback, bufferCount, bufferTime, bufferWhen, combineLatest, concat, concatAll, concatMap, concatMapTo, defer, distinct, distinctUntilChanged, distinctUntilKeyChanged, elementAt, exhaustAll, exhaustMap, expand, filter, first, forkJoin, from, fromEvent, fromEventPattern, generate, groupBy, iif, interval, last, map, mapTo, merge, mergeAll, mergeMap, mergeMapTo, mergeScan, multicast, Observable, observeOn, of, pairwise, partition, pipe, pluck, queueScheduler, race, range, refCount, ReplaySubject, scan, share, single, skip, skipLast, skipUntil, skipWhile, Subject, switchAll, switchMap, switchMapTo, switchScan, take, takeLast, takeUntil, takeWhile, throwError, timer, toArray, windowCount, windowTime, zip, } from 'rxjs';
 import { ajax } from 'rxjs/ajax'
 
 interface User {
@@ -166,6 +166,39 @@ export class CommonService {
   // }
 
   // finalData = from([1, 2, 3, 4, 5, 6, 7, 86, 9, 9]).pipe(this.discardOddDoubleEven())
+
+  // private readonly source = from([1, 2, 3, 4]);
+  // private readonly subject = new Subject();
+  // readonly multiCasted = this.source.pipe(multicast(this.subject), share())
+
+  // private subject = new AsyncSubject<number>();
+
+  // value$ = this.subject.asObservable();
+
+  // sendValue(val: number) {
+  //   this.subject.next(val);
+  // }
+
+  // private readonly userReplay = new ReplaySubject<string>(1);
+  // readonly user$ = this.userReplay.asObservable();
+
+  // updateUsername(name: string) {
+  //   console.log('emit:', name);
+  //   this.userReplay.next(name);
+  // }
+
+  readonly queueSche = of('async').pipe(observeOn(asyncScheduler));
+
+
+  // demo
+
+
+
+
+
+
+
+
 
 
   readonly observable = new Observable(function subscribe(subscriber) {

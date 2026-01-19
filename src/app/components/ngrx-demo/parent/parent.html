@@ -1,0 +1,7 @@
+@if (loading$ | async) {
+<div>Loading...</div>
+}
+
+@for (product of products$ | async; track product.id) {
+<h1>{{ product.title }}</h1>
+}
